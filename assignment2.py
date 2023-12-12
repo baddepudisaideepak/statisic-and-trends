@@ -45,12 +45,13 @@ def retrive(CountryCode, IndicatorCode,data):
 
         df = pd.DataFrame(columns= df1.columns)
         for i in CountryCode:
-            string1 = i+" "+ IndicatorCode
-            k = df1.loc[string1]
+            for j in IndicatorCode:
+                string1 = i +" "+ j
+                k = df1.loc[string1]
 
-            warnings.filterwarnings("ignore")
-            df = pd.concat([df, pd.DataFrame([k])], ignore_index=True)
-            ls.append(string1)
+                warnings.filterwarnings("ignore")
+                df = pd.concat([df, pd.DataFrame([k])], ignore_index=True)
+                ls.append(string1)
 
         ind =pd.Series(ls)
         df.set_index(ind, inplace=True)
