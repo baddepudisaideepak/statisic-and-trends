@@ -281,6 +281,9 @@ def main():
     # Setting index
     solidFuel = solidFuel.set_index(countryNameSeries)
 
+    #describe
+    print(solidFuel.corr())
+
     # Plotting the bar graph
     fig, ax = plt.subplots(figsize=(10, 6))
 
