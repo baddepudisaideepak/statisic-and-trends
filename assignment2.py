@@ -160,13 +160,15 @@ countryNameSeries = pd.Series(countryName)
 countryCode = ["BRA", "RUS", "IND", "CHN", "ZAF"]
 
 
-def main():
-    """
+"""
     Reading data from excel and
     storing in dataset, transposedDataset DataFrame
     by calling readFile function
-    """
-    dataset, transposedDataset = readFile('API_19_DS2_en_excel_v2_6002116.xls')
+"""
+
+dataset, transposedDataset = readFile('API_19_DS2_en_excel_v2_6002116.xls')
+
+def main():
     # urban population growth
 
     # calling retrive and slicing functions, givng gap 2 years
