@@ -303,6 +303,77 @@ def main():
     plt.savefig("gaseouddsFuel.png",dpi = 310, bbox_inches= 'tight' )
     plt.show()
 
+    """
+    EN.URB.MCTY.TL.ZS : Population in urban agglomerations of more than 1 million (% of total population)
+    SI.POV.DDAY : Poverty headcount ratio at $2.15 a day (2017 PPP) (% of population)
+    SH.DYN.MORT : Mortality rate, under-5 (per 1,000 live births)
+    SP.URB.TOTL.IN.ZS : Urban population (% of total population)
+    EN.ATM.CO2E.GF.ZS :CO2 emissions from gaseous fuel consumption (% of total)
+    EN.ATM.CO2E.SF.ZS :CO2 emissions from solid fuel consumption (% of total)
+    """
+
+    indicators = [
+                    'EN.URB.MCTY.TL.ZS',
+                    "SI.POV.DDAY",
+                    'SH.DYN.MORT',
+                    'SP.URB.TOTL.IN.ZS',
+                    'EN.ATM.CO2E.GF.ZS',
+                    'EN.ATM.CO2E.SF.ZS']
+
+    countryCode2 = ['USA']
+    indicatorNames = ['Urban agglom', 'Poverty', 'Mortality', 'Urban population', 'CO2 gas fuels', 'CO2 solid fuels']
+    # Using retrive function and drop method
+    USA = retrive(countryCode2 , indicators,dataset)
+    USA = USA.dropna(axis = 1)
+
+    # setting index
+    indicatorNamesSeries = pd.Series(indicatorNames)
+    USA = USA.set_index(indicatorNamesSeries)
+
+    # transposing and Correcaltio
+    USA = USA.T
+    corrUSA = USA.corr()
+    print(corrUSA)
+
+    # Create the heatmap
+    plt.imshow(corrUSA, cmap='viridis', interpolation='nearest')
+    plt.colorbar()
+
+    # Creating X and Y ticks and title
+    plt.xticks(ticks=np.arange(len(USA.columns)), rotation=90, labels=USA.columns)
+    plt.yticks(ticks=np.arange(len(USA.columns)), labels=USA.columns)
+    plt.title("USA - Heatmap")
+
+    # Saving and display the plot
+    plt.savefig("USA_heatmap.png",dpi = 310, bbox_inches= 'tight' )
+    plt.show()
+
+    countryCode2 = ['IND']
+    # Using retrive function and drop method
+    India = retrive(countryCode2 , indicators,dataset)
+    India = India.dropna(axis = 1)
+
+    # setting index
+    indicatorNamesSeries = pd.Series(indicatorNames)
+    India = India.set_index(indicatorNamesSeries)
+
+    # transposing and Correcaltio
+    India = India.T
+    corrIndia = India.corr()
+    print(corrIndia)
+    # Create the heatmap
+    plt.imshow(corrIndia, cmap='viridis', interpolation='nearest')
+    plt.colorbar()
+
+    # Creating X and Y ticks and title
+
+    plt.xticks(ticks=np.arange(len(India.columns)), rotation=90, labels=India.columns)
+    plt.yticks(ticks=np.arange(len(India.columns)), labels=India.columns)
+    plt.title("India - Heatmap")
+
+    # Saving and display the plot
+    plt.savefig("India_heatmap.png",dpi = 310, bbox_inches= 'tight' )
+    plt.show()
 
 if __name__ == "__main__":
     main()
