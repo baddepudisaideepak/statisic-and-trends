@@ -263,7 +263,7 @@ def main():
 
     #setting limits
     plt.ylim(0,120)
-    ax.legend(title="years", loc='center left', bbox_to_anchor=(1, 0.5))")
+    ax.legend(title="years", loc='center left', bbox_to_anchor=(1, 0.5))
 
     # Saving and display the plot
     plt.savefig("gaseousFuel",dpi = 310, bbox_inches= 'tight' )
@@ -302,3 +302,7 @@ def main():
     # Saving and display the plot
     plt.savefig("gaseouddsFuel.png",dpi = 310, bbox_inches= 'tight' )
     plt.show()
+
+
+if __name__ == "__main__":
+    main()
