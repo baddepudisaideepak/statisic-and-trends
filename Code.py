@@ -1,7 +1,7 @@
 """
     this is Assignment 2 of Applied Data science 1 ,
     Statistic and trends
-    
+
 """
 
 # Import the pandas library for data manipulation and analysis
@@ -178,6 +178,11 @@ countryCode = ["BRA", "RUS", "IND", "CHN", "ZAF"]
 """
 
 dataset, transposedDataset = readFile('API_19_DS2_en_excel_v2_6002116.xls')
+print('Cleaned dataset :-')
+print(dataset.head(5))
+print("cleaned transposedDataset :-")
+print(transposedDataset.head(5))
+
 
 def main():
     # urban population growth
