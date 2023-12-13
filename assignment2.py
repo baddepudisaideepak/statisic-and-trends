@@ -119,13 +119,13 @@ def retrive(countryCode, indicatorCode,data):
 
 
 """
-    retrive3 functions will take
+    slicing functions will take
     data, gap in
     it divide columns based on gap given
     input : dataFrame, integer
     output : dataFrame
 """
-def retrive3(data, gap):
+def slicing(data, gap):
     dataCopy = data.copy()
     emptyData = pd.DataFrame(index=dataCopy.index )
     years = np.arange(1960, 2023, gap)
@@ -145,9 +145,9 @@ def main():
 
     # urban population growth
 
-    # calling retrive and retrive3 functions, givng gap 2 years
+    # calling retrive and slicing functions, givng gap 2 years
     urbanGrowth= retrive(countryCode, ["SP.URB.GROW"], dataset )
-    urbanGrowth = retrive3(urbanGrowth, 2)
+    urbanGrowth = slicing(urbanGrowth, 2)
 
     #dropping missing value column's
     urbanGrowth = urbanGrowth.dropna(axis=1)
@@ -155,6 +155,7 @@ def main():
     print(urbanGrowth)
 
     # describe functions
+    print('Urban population growth')
     print(urbanGrowth.describe())
 
     # aggre method on urbanGrowth
@@ -188,13 +189,13 @@ def main():
 
 
 
-    #% Foregin Direct Investment
+    #% Foreign Direct Investment
     FDI= retrive(countryCode, ["BX.KLT.DINV.WD.GD.ZS"], dataset )
-    FDI = retrive3(FDI, 2)
+    FDI = slicing(FDI, 2)
 
     #dropping missing value column's
     FDI = FDI.dropna(axis=1)
-
+    print("Foreign Direct Investment's")
     print(FDI)
 
     # describe functions
@@ -216,9 +217,9 @@ def main():
     plt.plot(FDI.iloc[4], '-.', label = 'S. Africa')
 
     # labeling
-    plt.title("Foregin Direct Investment (% of GDP)")
+    plt.title("Foreign Direct Investment (% of GDP)")
     plt.xlabel("years")
-    plt.ylabel("Foregin Drirect Investment")
+    plt.ylabel("Foreign Drirect Investment")
 
     # setting limits
     plt.xlim(3,16)
@@ -232,7 +233,7 @@ def main():
 
     # Using retrive and retrive 3
     gasFuel = retrive(countryCode, ["EN.ATM.CO2E.GF.ZS"], dataset )
-    gasFuel = retrive3(gasFuel, 5)
+    gasFuel = slicing(gasFuel, 5)
 
     # droping and slicing
     gasFuel = gasFuel.dropna(axis=1)
@@ -242,6 +243,7 @@ def main():
     gasFuel = gasFuel.set_index(countryNameSeries)
 
     # describe
+    print("CO2 emissions from gaseous fuel consumption")
     print(gasFuel.describe())
 
     # Plotting the bar graph
@@ -268,11 +270,13 @@ def main():
     # Saving and display the plot
     plt.savefig("graphs/gaseousFuel",dpi = 310, bbox_inches= 'tight' )
     plt.show()
+
+
     #CO2 emissions from solid fuel consumption (% of total)
 
     #  Using retrive and retrive 3
     solidFuel = retrive(countryCode, ["EN.ATM.CO2E.SF.ZS"], dataset )
-    solidFuel = retrive3(solidFuel, 5)
+    solidFuel = slicing(solidFuel, 5)
 
     # Droping and slicing
     solidFuel = solidFuel.dropna(axis=1)
@@ -282,7 +286,8 @@ def main():
     solidFuel = solidFuel.set_index(countryNameSeries)
 
     #describe
-    print(solidFuel.corr())
+    print('CO2 emissions from solid fuel ')
+    print(solidFuel.describe())
 
     # Plotting the bar graph
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -335,7 +340,10 @@ def main():
 
     # transposing and Correcaltio
     USA = USA.T
+    print("USA data")
+    print(USA)
     corrUSA = USA.corr()
+    print('correlation of USA')
     print(corrUSA)
 
     # Create the heatmap
@@ -362,7 +370,13 @@ def main():
 
     # transposing and Correcaltio
     India = India.T
+
+    print("USA data")
+    print(USA)
+    
     corrIndia = India.corr()
+
+    print('correlation of India')
     print(corrIndia)
     # Create the heatmap
     plt.imshow(corrIndia, cmap='viridis', interpolation='nearest')
