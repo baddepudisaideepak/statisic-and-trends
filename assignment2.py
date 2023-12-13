@@ -183,7 +183,7 @@ def main():
     plt.legend(title="years", loc='center left', bbox_to_anchor=(1, 0.5))
 
     # saving the graph
-    plt.savefig("urbanpopulationgrowth.png",dpi = 310,  bbox_inches= 'tight' )
+    plt.savefig("graphs/urbanPopulationGrowth.png",dpi = 310,  bbox_inches= 'tight' )
     plt.show()
 
 
@@ -225,7 +225,7 @@ def main():
     plt.legend(title="years", loc='center left', bbox_to_anchor=(1, 0.5))
 
     # saving the graph
-    plt.savefig("FDI Growth.png",dpi = 310,  bbox_inches= 'tight' )
+    plt.savefig("graphs/FDI_Growth.png",dpi = 310,  bbox_inches= 'tight' )
     plt.show()
 
     # CO2 emissions from gaseous fuel consumption (% of total)
@@ -266,7 +266,7 @@ def main():
     ax.legend(title="years", loc='center left', bbox_to_anchor=(1, 0.5))
 
     # Saving and display the plot
-    plt.savefig("gaseousFuel",dpi = 310, bbox_inches= 'tight' )
+    plt.savefig("graphs/gaseousFuel",dpi = 310, bbox_inches= 'tight' )
     plt.show()
     #CO2 emissions from solid fuel consumption (% of total)
 
@@ -300,7 +300,7 @@ def main():
 
     ax.legend(title="years", loc='center left', bbox_to_anchor=(1, 0.5))
     # Saving and display the plot
-    plt.savefig("gaseouddsFuel.png",dpi = 310, bbox_inches= 'tight' )
+    plt.savefig("graphs/solidFuel.png",dpi = 310, bbox_inches= 'tight' )
     plt.show()
 
     """
@@ -345,7 +345,7 @@ def main():
     plt.title("USA - Heatmap")
 
     # Saving and display the plot
-    plt.savefig("USA_heatmap.png",dpi = 310, bbox_inches= 'tight' )
+    plt.savefig("graphs/USA_heatmap.png",dpi = 310, bbox_inches= 'tight' )
     plt.show()
 
     countryCode2 = ['IND']
@@ -372,7 +372,7 @@ def main():
     plt.title("India - Heatmap")
 
     # Saving and display the plot
-    plt.savefig("India_heatmap.png",dpi = 310, bbox_inches= 'tight' )
+    plt.savefig("graphs/India_heatmap.png",dpi = 310, bbox_inches= 'tight' )
     plt.show()
 
 if __name__ == "__main__":
