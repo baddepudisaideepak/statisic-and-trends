@@ -1,3 +1,9 @@
+"""
+    this is Assignment 2 of Applied Data science 1 ,
+    Statistic and trends
+    
+"""
+
 # Import the pandas library for data manipulation and analysis
 import pandas as pd
 
@@ -6,7 +12,12 @@ import matplotlib.pyplot as plt
 
 # Import the NumPy library for numerical computations
 import numpy as np
-
+"""
+    Please Install xlrd package in your environment
+    "pip install xlrd"
+    or
+    "conda install -c anaconda xlrd"
+"""
 # Import the xlrd library for excel sheet
 import xlrd
 
@@ -344,7 +355,7 @@ def main():
 
     SI.POV.DDAY : Poverty headcount ratio at $2.15 a day (2017 PPP)
     (% of population)
-    
+
     SH.DYN.MORT : Mortality rate, under-5 (per 1,000 live births)
     SP.URB.TOTL.IN.ZS : Urban population (% of total population)
     EN.ATM.CO2E.GF.ZS :CO2 emissions from gaseous fuel consumption
